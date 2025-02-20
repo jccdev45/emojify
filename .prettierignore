@@ -1,0 +1,31 @@
+# Build output
+dist
+build
+
+# Dependencies
+node_modules
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# Cache directories
+.cache
+.vite
+
+# Editor directories and files
+.vscode
+.idea
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Specific files to ignore
+.github/workflows/aws.yml
+components.json
+public/manifest.json
+src/data/emoji-data.json
