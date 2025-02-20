@@ -83,7 +83,7 @@ const App = () => {
           <h1 className="text-4xl md:text-7xl font-bold tracking-tight">
             Emojify your text!
           </h1>
-          <p className="text-muted-foreground text-lg italic">
+          <p className="text-muted-foreground text-lg italic bg-muted p-2 w-fit mx-auto rounded">
             This algorithm was trained on text posts from the subreddit{' '}
             <a
               href="https://www.reddit.com/r/emojipasta"
@@ -180,7 +180,7 @@ const App = () => {
           </Button>
         </main>
 
-        <footer className="text-center py-6 px-4 bg-secondary">
+        <footer className="text-center py-6 px-4 bg-secondary text-secondary-foreground">
           <p className="flex items-center justify-center gap-1">
             <Copyright className="h-4 w-4" aria-hidden="true" />
             <span>Mark Farnum {new Date().getFullYear()}</span>
