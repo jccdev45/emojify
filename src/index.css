@@ -1,13 +1,122 @@
-body {
-  margin: 0;
-  font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+@import "tailwindcss";
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@plugin "tailwindcss-animate";
 
-  line-height: 1.3;
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: hsl(210 100% 95%);
+  --foreground: hsl(210 5% 0%);
+  --card: hsl(210 50% 90%);
+  --card-foreground: hsl(210 5% 10%);
+  --popover: hsl(210 100% 95%);
+  --popover-foreground: hsl(210 100% 0%);
+  --primary: hsl(210 88.8% 28%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(210 30% 70%);
+  --secondary-foreground: hsl(0 0% 0%);
+  --muted: hsl(172 30% 85%);
+  --muted-foreground: hsl(210 5% 35%);
+  --accent: hsl(172 30% 80%);
+  --accent-foreground: hsl(210 5% 10%);
+  --destructive: hsl(0 100% 30%);
+  --destructive-foreground: hsl(210 5% 90%);
+  --border: hsl(210 30% 50%);
+  --input: hsl(210 30% 18%);
+  --ring: hsl(210 88.8% 28%);
+  --chart-1: hsl(12 76% 61%);
+  --chart-2: hsl(173 58% 39%);
+  --chart-3: hsl(197 37% 24%);
+  --chart-4: hsl(43 74% 66%);
+  --chart-5: hsl(27 87% 67%);
+  --radius: 0.5rem;
 }
 
-code {
-  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+.dark {
+  --background: hsl(210 50% 5%);
+  --foreground: hsl(210 5% 90%);
+  --card: hsl(210 50% 0%);
+  --card-foreground: hsl(210 5% 90%);
+  --popover: hsl(210 50% 5%);
+  --popover-foreground: hsl(210 5% 90%);
+  --primary: hsl(210 88.8% 28%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(210 30% 10%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --muted: hsl(172 30% 15%);
+  --muted-foreground: hsl(210 5% 60%);
+  --accent: hsl(172 30% 15%);
+  --accent-foreground: hsl(210 5% 90%);
+  --destructive: hsl(0 100% 30%);
+  --destructive-foreground: hsl(210 5% 90%);
+  --border: hsl(210 30% 18%);
+  --input: hsl(210 30% 18%);
+  --ring: hsl(210 88.8% 28%);
+  --chart-1: hsl(220 70% 50%);
+  --chart-2: hsl(160 60% 45%);
+  --chart-3: hsl(30 80% 55%);
+  --chart-4: hsl(280 65% 60%);
+  --chart-5: hsl(340 75% 55%);
+}
+
+@theme inline {
+  /* colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* border radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* font family */
+  --font-body:
+    "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans",
+    "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+  --font-code:
+    Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+    monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground m-0 leading-4 antialiased;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

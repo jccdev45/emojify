@@ -24,6 +24,11 @@ jobs:
         with:
           ref: main
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
       - name: Create env file
         run: |
           touch .env
@@ -34,7 +39,7 @@ jobs:
           STACK_NAME: ${{ env.stack-name }}
           CLOUDFRONT_DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION }}
         run: |
-          yarn install
-          yarn build
-          aws s3 sync ./build s3://${{ env.frontend-domain }} --delete
-          aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION --paths "/robots.txt" "/favicon.ico" "/index.html" "/logo192.png" "/logo512.png" "/css/normalize.css" "/css/skeleton.css" "/css/util.css" "/asset-manifest.json"
+          bun install
+          bun run build
+          aws s3 sync ./dist s3://${{ env.frontend-domain }} --delete
+          aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION --paths "/index.html" "/favicon.ico" "/robots.txt" "/icon-192.png" "/icon-512.png" "/manifest.json"
